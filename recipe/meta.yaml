@@ -17,17 +17,22 @@ requirements:
   host:
     - python
     - setuptools
-
+    - pip
+    - wheel
   run:
     - python
 
 test:
   imports:
     - webencodings
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/gsnedders/python-webencodings
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   doc_url: https://pythonhosted.org/webencodings
