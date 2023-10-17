@@ -10,24 +10,29 @@ source:
   sha256: 082367f568a7812aa5f6922ffe3d9d027cd83829dc32bcaac4c874eeed618000
 
 build:
-  number: 1
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 2
+  script: pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
 
 requirements:
   host:
     - python
     - setuptools
-
+    - pip
+    - wheel
   run:
     - python
 
 test:
   imports:
     - webencodings
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/gsnedders/python-webencodings
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   doc_url: https://pythonhosted.org/webencodings
