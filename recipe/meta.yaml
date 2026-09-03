@@ -1,4 +1,4 @@
-{% set version = "0.5.1" %}
+{% set version = "0.6.1" %}
 
 package:
   name: webencodings
@@ -6,19 +6,19 @@ package:
 
 source:
   fn: webencodings-{{ version }}.tar.gz
-  url: https://github.com/gsnedders/python-webencodings/archive/v{{ version }}.tar.gz
-  sha256: 082367f568a7812aa5f6922ffe3d9d027cd83829dc32bcaac4c874eeed618000
+  url: https://github.com/CourtBouillon/webencodings/archive/v{{ version }}.tar.gz
+  sha256: 10fbb39ffbebf229552c7ede0172313c0612e2ff88259223b94db77a66f8b889
 
 build:
-  number: 2
+  number: 0
+  skip: True  # [py<310]
   script: pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
 
 requirements:
   host:
     - python
-    - setuptools
+    - flit-core >=3.2,<5
     - pip
-    - wheel
   run:
     - python
 
@@ -31,12 +31,12 @@ test:
     - pip check
 
 about:
-  home: https://github.com/gsnedders/python-webencodings
+  home: https://github.com/CourtBouillon/webencodings
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  doc_url: https://pythonhosted.org/webencodings
-  dev_url: https://github.com/gsnedders/python-webencodings
+  doc_url: https://doc.courtbouillon.org/webencodings
+  dev_url: https://github.com/CourtBouillon/webencodings
   summary: Character encoding aliases for legacy web content
 
 extra:
